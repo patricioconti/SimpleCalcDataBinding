@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SimpleCalcPato</string>
+    <string name="type_operand_1">Type Operand 1</string>
+    <string name="type_operand_2">Type Operand 2</string>
+    <string name="add">Add</string>
+    <string name="sub">Sub</string>
+    <string name="div">Div</string>
+    <string name="mul">mul</string>
+
+    <!-- Message for textview in case of errors  -->
+    <string name="computationError">Error</string>
+    <string name="current_operation">Current Operation</string>
+</resources>

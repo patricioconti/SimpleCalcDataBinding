@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+        name="calcViewModel"
+        type="com.example.simplecalcpato.CalcViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            tools:context=".MainActivity">
+
+            <EditText
+                android:id="@+id/operand_one_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/type_operand_1"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:minHeight="@dimen/min_height"
+                android:textColorHint="@color/grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/operand_two_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/type_operand_2"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:minHeight="@dimen/min_height"
+                android:textColorHint="@color/grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/operand_one_edit_text" />
+
+            <Button
+                android:id="@+id/operation_add_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/add"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/operand_two_edit_text" />
+
+            <Button
+                android:id="@+id/operation_sub_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/sub"
+                app:layout_constraintStart_toEndOf="@+id/operation_add_btn"
+                app:layout_constraintTop_toBottomOf="@id/operand_two_edit_text" />
+
+            <Button
+                android:id="@+id/operation_div_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/div"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/operation_add_btn" />
+
+            <Button
+                android:id="@+id/operation_mul_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/mul"
+                app:layout_constraintStart_toEndOf="@+id/operation_div_btn"
+                app:layout_constraintTop_toBottomOf="@id/operation_sub_btn" />
+
+            <TextView
+                android:id="@+id/operation_result_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/operation_div_btn"
+                android:text="@{calcViewModel.result.toString()}"
+                tools:text="80.23" />
+
+            <ImageView
+                android:id="@+id/operation_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                android:layout_marginStart="@dimen/default_margin"
+                android:contentDescription="@string/current_operation"
+                app:layout_constraintTop_toTopOf="@id/operation_mul_btn"
+                app:layout_constraintStart_toEndOf="@id/operation_mul_btn"
+                app:operationCurrent="@{calcViewModel.operation}"
+                tools:src="@drawable/ic_baseline_add_24"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
