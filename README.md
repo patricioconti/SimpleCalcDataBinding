@@ -12,6 +12,9 @@ Unit tests to check calculation operations were implemented.
 
 Instrumented tests using Expresso were implemented using text matchers and drawable matchers. 
 
+![Screenshots-for-readme-600](https://user-images.githubusercontent.com/96868937/179285723-911d5cac-2315-44cb-8013-840e4db57f48.jpg)
+
+
 Purpose
 --------------
 
