@@ -56,4 +56,7 @@ dependencies {
 
     //LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
+
+    //Dependencies for testing ViewModel and LiveData
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
 }

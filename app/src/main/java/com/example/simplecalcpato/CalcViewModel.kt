@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+
+//Class of current Operation to use on BindingAdapter
 enum class Operation {
     ADD,
     SUB,
@@ -14,10 +16,10 @@ enum class Operation {
 class CalcViewModel : ViewModel() {
 
 
-    // The internal MutableLiveData that stores the status of the most recent request
+    // The internal MutableLiveData that stores the current operation type (Add,Sub,Mul or Div)
     private val _operation = MutableLiveData<Operation>()
 
-    // The external immutable LiveData for the request status
+    // The external immutable LiveData for the current operation type
     val operation: LiveData<Operation> = _operation
 
     //Result number of the operation as LiveData and encapsulated

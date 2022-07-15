@@ -5,6 +5,7 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 
 
+
 @BindingAdapter("operationCurrent")
 fun bindOperation(operationImageView: ImageView,
                operation: Operation?) {
