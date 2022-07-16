@@ -159,6 +159,27 @@ class CalculatorInstrumentedTest {
 
     }
 
+    // Add with no input operands. So FirstOperand will be 0 and SecondOperand will be 0.
+    // Result must be 0.0
+    @Test
+    fun add_no_input_operands() {
+      //No input on operands
+
+        //Click Add Operation button
+        Espresso.onView(ViewMatchers.withId(R.id.operation_add_btn))
+            .perform(ViewActions.click())
+
+        //Check Operation result view matches expected value.
+        Espresso.onView(ViewMatchers.withId(R.id.operation_result_text_view))
+            .check(ViewAssertions.matches(ViewMatchers.withText(Matchers.containsString("0.0"))))
+
+        //Check OperationImageView matches the expected drawable resource
+        Espresso.onView(withId(R.id.operation_image)).check(
+            ViewAssertions.matches(withDrawable(R.drawable.ic_baseline_add_24))
+        )
+
+    }
+
 
 
 }
