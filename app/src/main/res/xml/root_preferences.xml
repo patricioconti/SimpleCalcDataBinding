@@ -1,0 +1,21 @@
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <!-- List Preference for Select Theme
+     Why not use a string resource for the key?
+     Because string resources can be localized for different languages using multiple-language XML files,
+     and the key string might be inadvertently translated along with the other strings,
+     which would cause the app to crash.
+     -->
+
+        <androidx.preference.ListPreference
+            app:defaultValue="auto"
+            app:entries="@array/select_theme_entries"
+            app:entryValues="@array/select_theme_values"
+            app:icon="@drawable/ic_phone_android_24"
+            app:key="select_theme"
+            app:title="@string/select_theme_title"
+            app:useSimpleSummaryProvider="true" />
+
+
+</androidx.preference.PreferenceScreen>

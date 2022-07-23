@@ -1,4 +1,4 @@
-package com.example.simplecalcpato
+package com.example.simplecalcpato.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

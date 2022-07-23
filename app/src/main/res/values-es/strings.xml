@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- MainActivity -->
+    <string name="type_operand_1"> Operando 1</string>
+    <string name="type_operand_2"> Operando 2</string>
+    <string name="add">Sum</string>
+    <string name="sub">Rest</string>
+    <string name="div">Div</string>
+    <string name="mul">Mul</string>
+
+    <!-- Message for textview in case of errors  -->
+    <string name="computationError">Error</string>
+    <string name="current_operation">Operación actual</string>
+
+
+    <!-- Menu labels -->
+    <string name="action_settings">Ajustes</string>
+
+    <!-- Setting activity labels -->
+    <string name="title_activity_settings">Ajustes</string>
+
+    <!-- Select Theme Preference -->
+    <string name="select_theme_title">Elegir tema</string>
+    <string name="night_mode_entry">Oscuro</string>
+    <string name="day_mode_entry">Día</string>
+    <string name="auto_mode_entry">Auto</string>
+
+</resources>

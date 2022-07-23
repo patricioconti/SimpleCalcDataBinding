@@ -8,24 +8,23 @@ import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import com.example.simplecalcpato.DrawableMatcher.withDrawable
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
-
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-
-import org.junit.Assert.*
-import org.junit.Rule
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -42,27 +41,27 @@ class CalculatorInstrumentedTest {
     @Test
     fun add_two_numbers() {
         //Type 20 on operand one edit text
-        Espresso.onView(ViewMatchers.withId(R.id.operand_one_edit_text))
+        Espresso.onView(withId(R.id.operand_one_edit_text))
             .perform(ViewActions.typeText("20"))
 
         //Type 53 on operand two edit text
-        Espresso.onView(ViewMatchers.withId(R.id.operand_two_edit_text))
+        Espresso.onView(withId(R.id.operand_two_edit_text))
             .perform(ViewActions.typeText("53"))
 
             //Close soft keyboard to reach operator button button
             .perform(ViewActions.closeSoftKeyboard())
 
         //Click Add Operation button
-        Espresso.onView(ViewMatchers.withId(R.id.operation_add_btn))
+        Espresso.onView(withId(R.id.operation_add_btn))
             .perform(ViewActions.click())
 
         //Check Operation result view matches expected value.
-        Espresso.onView(ViewMatchers.withId(R.id.operation_result_text_view))
-            .check(ViewAssertions.matches(ViewMatchers.withText(Matchers.containsString("73.0"))))
+        Espresso.onView(withId(R.id.operation_result_text_view))
+            .check(ViewAssertions.matches(withText(Matchers.containsString("73.0"))))
 
         //Check OperationImageView matches the expected drawable resource
         Espresso.onView(withId(R.id.operation_image)).check(
-            ViewAssertions.matches(withDrawable(R.drawable.ic_baseline_add_24))
+            ViewAssertions.matches(withDrawable(R.drawable.ic_add_24))
         )
 
     }
@@ -71,56 +70,56 @@ class CalculatorInstrumentedTest {
     @Test
     fun sub_two_numbers() {
         //Type 12.5 on operand one edit text
-        Espresso.onView(ViewMatchers.withId(R.id.operand_one_edit_text))
+        Espresso.onView(withId(R.id.operand_one_edit_text))
             .perform(ViewActions.typeText("12.5"))
 
         //Type 14.5 on operand two edit text
-        Espresso.onView(ViewMatchers.withId(R.id.operand_two_edit_text))
+        Espresso.onView(withId(R.id.operand_two_edit_text))
             .perform(ViewActions.typeText("14.5"))
 
             //Close soft keyboard to reach operator button button
             .perform(ViewActions.closeSoftKeyboard())
 
         //Click Sub Operation button
-        Espresso.onView(ViewMatchers.withId(R.id.operation_sub_btn))
+        Espresso.onView(withId(R.id.operation_sub_btn))
             .perform(ViewActions.click())
 
         //Check Operation result view matches expected value.
-        Espresso.onView(ViewMatchers.withId(R.id.operation_result_text_view))
-            .check(ViewAssertions.matches(ViewMatchers.withText(Matchers.containsString("-2.0"))))
+        Espresso.onView(withId(R.id.operation_result_text_view))
+            .check(ViewAssertions.matches(withText(Matchers.containsString("-2.0"))))
 
         //Check OperationImageView matches the expected drawable resource
         Espresso.onView(withId(R.id.operation_image)).check(
-            ViewAssertions.matches(withDrawable(R.drawable.ic_baseline_sub_24))
+            ViewAssertions.matches(withDrawable(R.drawable.ic_sub_24))
         )
 
     }
 
-    // mul two numbers
+    // Mul two numbers
     @Test
     fun mul_two_numbers() {
         //Type 20.2 on operand one edit text
-        Espresso.onView(ViewMatchers.withId(R.id.operand_one_edit_text))
+        Espresso.onView(withId(R.id.operand_one_edit_text))
             .perform(ViewActions.typeText("20.2"))
 
         //Type 14.5 on operand two edit text
-        Espresso.onView(ViewMatchers.withId(R.id.operand_two_edit_text))
+        Espresso.onView(withId(R.id.operand_two_edit_text))
             .perform(ViewActions.typeText("8.5"))
 
             //Close soft keyboard to reach operator button button
             .perform(ViewActions.closeSoftKeyboard())
 
         //Click Mul Operation button
-        Espresso.onView(ViewMatchers.withId(R.id.operation_mul_btn))
+        Espresso.onView(withId(R.id.operation_mul_btn))
             .perform(ViewActions.click())
 
         //Check Operation result view matches expected value.
-        Espresso.onView(ViewMatchers.withId(R.id.operation_result_text_view))
-            .check(ViewAssertions.matches(ViewMatchers.withText(Matchers.containsString("171.7"))))
+        Espresso.onView(withId(R.id.operation_result_text_view))
+            .check(ViewAssertions.matches(withText(Matchers.containsString("171.7"))))
 
         //Check OperationImageView matches the expected drawable resource
         Espresso.onView(withId(R.id.operation_image)).check(
-            ViewAssertions.matches(withDrawable(R.drawable.ic_baseline_mul_24))
+            ViewAssertions.matches(withDrawable(R.drawable.ic_mul_24))
         )
 
     }
@@ -134,27 +133,27 @@ class CalculatorInstrumentedTest {
     @Test
     fun divide_two_numbers() {
         //Type 100 on operand one edit text
-        Espresso.onView(ViewMatchers.withId(R.id.operand_one_edit_text))
+        Espresso.onView(withId(R.id.operand_one_edit_text))
             .perform(ViewActions.typeText("100"))
 
         //Type 50 on operand two edit text
-        Espresso.onView(ViewMatchers.withId(R.id.operand_two_edit_text))
+        Espresso.onView(withId(R.id.operand_two_edit_text))
             .perform(ViewActions.typeText("50"))
 
             //Close soft keyboard to reach operator button button
             .perform(ViewActions.closeSoftKeyboard())
 
         //Click Sub Operation button
-        Espresso.onView(ViewMatchers.withId(R.id.operation_div_btn))
+        Espresso.onView(withId(R.id.operation_div_btn))
             .perform(ViewActions.click())
 
         //Check Operation result view matches expected value.
-        Espresso.onView(ViewMatchers.withId(R.id.operation_result_text_view))
-            .check(ViewAssertions.matches(ViewMatchers.withText(Matchers.containsString("2.0"))))
+        Espresso.onView(withId(R.id.operation_result_text_view))
+            .check(ViewAssertions.matches(withText(Matchers.containsString("2.0"))))
 
         //Check OperationImageView matches the expected drawable resource
         Espresso.onView(withId(R.id.operation_image)).check(
-            ViewAssertions.matches(withDrawable(R.drawable.ic_baseline_div_24))
+            ViewAssertions.matches(withDrawable(R.drawable.ic_div_24))
         )
 
     }
@@ -166,20 +165,38 @@ class CalculatorInstrumentedTest {
       //No input on operands
 
         //Click Add Operation button
-        Espresso.onView(ViewMatchers.withId(R.id.operation_add_btn))
+        Espresso.onView(withId(R.id.operation_add_btn))
             .perform(ViewActions.click())
 
         //Check Operation result view matches expected value.
-        Espresso.onView(ViewMatchers.withId(R.id.operation_result_text_view))
-            .check(ViewAssertions.matches(ViewMatchers.withText(Matchers.containsString("0.0"))))
+        Espresso.onView(withId(R.id.operation_result_text_view))
+            .check(ViewAssertions.matches(withText(Matchers.containsString("0.0"))))
 
         //Check OperationImageView matches the expected drawable resource
         Espresso.onView(withId(R.id.operation_image)).check(
-            ViewAssertions.matches(withDrawable(R.drawable.ic_baseline_add_24))
+            ViewAssertions.matches(withDrawable(R.drawable.ic_add_24))
         )
 
     }
 
+    // Click menu settings and check setting activity is displayed
+    @Test
+    fun clicking_menu_settings_displays_settings_activity () {
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
+        Espresso.onView(withText(R.string.action_settings)).perform(ViewActions.click())
+        Espresso.onView(withId(R.id.settings))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    }
+
+    // Click select theme setting and check theme dialog is displayed
+    @Test
+    fun clicking_select_theme_displays_theme_dialog() {
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
+        Espresso.onView(withText(R.string.action_settings)).perform(ViewActions.click())
+        Espresso.onView(withText(R.string.select_theme_title)).perform(ViewActions.click())
+        Espresso.onView(withText(R.string.night_mode_entry))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    }
 
 
 }

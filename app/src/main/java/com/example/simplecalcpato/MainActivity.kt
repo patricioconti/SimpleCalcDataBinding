@@ -1,16 +1,21 @@
 package com.example.simplecalcpato
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import androidx.preference.PreferenceManager
 import com.example.simplecalcpato.databinding.ActivityMainBinding
+import com.example.simplecalcpato.viewmodel.CalcViewModel
 import java.lang.IllegalArgumentException
 
 
-
+//Tag used for Logcat
 private const val TAG = "CalculatorActivity"
 
 
@@ -33,6 +38,12 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        // Sets default values only once, first time this is called.
+        // The third argument is a boolean that indicates whether
+        // the default values should be set more than once. When false,
+        // the system sets the default values only if this method has never
+        // been called in the past.
+        PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false)
 
         //Bind viewModel with calcViewModel on the XML file
         binding.calcViewModel = viewModel
@@ -108,6 +119,29 @@ class MainActivity : AppCompatActivity() {
         }
         return operandTwo
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return when (item.itemId) {
+            R.id.action_settings -> {
+                // Create an intent with a destination of SettingsActivity
+                val intent = Intent(this, SettingsActivity::class.java)
+                // Start an activity using destination from the Intent.
+                startActivity(intent)
+                return true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 }

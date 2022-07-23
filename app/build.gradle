@@ -40,6 +40,12 @@ android {
 
 dependencies {
 
+    //Preference Screen
+    implementation 'androidx.preference:preference-ktx:1.2.0'
+
+    implementation 'androidx.preference:preference:1.2.0'
+
+
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
@@ -49,13 +55,13 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //ViewModel
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
 
     //To get viewModels on a fragment or activity
-    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+    implementation 'androidx.fragment:fragment-ktx:1.5.0'
 
     //LiveData
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0"
 
     //Dependencies for testing ViewModel and LiveData
     testImplementation 'androidx.arch.core:core-testing:2.1.0'

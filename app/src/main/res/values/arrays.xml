@@ -1,0 +1,24 @@
+<resources>
+    <!-- Select Theme Preference Entries
+     Use string resource on each item entry
+     Call string resource at activity to avoid problems when translating
+     -->
+    <string-array name="select_theme_entries">
+        <item>@string/night_mode_entry</item>
+        <item>@string/day_mode_entry</item>
+        <item>@string/auto_mode_entry</item>
+    </string-array>
+
+    <!-- Select Theme Preference Values
+     Why not use a string resource for the values?
+     Because string resources can be localized for different languages using multiple-language XML files,
+     and the value might be inadvertently translated along with the other strings,
+     which would cause the app to crash.
+     -->
+
+    <string-array name="select_theme_values">
+        <item>night_mode</item>
+        <item>day_mode</item>
+        <item>auto</item>
+    </string-array>
+</resources>
