@@ -1,6 +1,7 @@
 package com.example.simplecalcpato
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.example.simplecalcpato.viewmodel.CalcViewModel
 import org.junit.Test
 
 import org.junit.Assert.*
